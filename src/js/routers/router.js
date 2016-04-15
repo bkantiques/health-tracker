@@ -7,6 +7,10 @@ var Workspace = Backbone.Router.extend({
 		'main': 'setMainView'
 	},
 
+	initialize: function() {
+
+	},
+
 	setLoginView: function() {
 		// If logged in
 		if(app.User.get('authData')) {
@@ -47,7 +51,3 @@ var Workspace = Backbone.Router.extend({
 
 	}
 });
-
-app.Router = new Workspace();
-
-Backbone.history.start();

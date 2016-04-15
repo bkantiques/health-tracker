@@ -22,14 +22,14 @@
 	<div id="login-view">
 		<div>
 			<label for="login-email">Email: </label>
-			<input type="email" id="login-email">
+			<input type="email" id="login-email" class="login-email">
 		</div>
 		<div>
 			<label for="login-password">Password: </label>
-			<input type="password" id="login-password">
+			<input type="password" id="login-password" class="login-password">
 		</div>
 		<div>
-			<button>Login</button>
+			<button class="login-button">Log In</button>
 		</div>
 		<div>
 			<a href="#register">Register</a>
@@ -39,14 +39,14 @@
 	<div id="register-view">
 		<div>
 			<label for="register-email">Email: </label>
-			<input type="email" id="login-email">
+			<input type="email" id="register-email" class="register-email">
 		</div>
 		<div>
 			<label for="register-password">Password: </label>
-			<input type="password" id="login-password">
+			<input type="password" id="register-password" class="register-password">
 		</div>
 		<div>
-			<button>Register</button>
+			<button class="register-button">Register</button>
 		</div>
 		<div>
 			<a href="#login">Back to Login</a>
@@ -54,7 +54,7 @@
 	</div>
 
 	<div id="main-view">
-		Main
+		<div><a class="log-out" href="#login">Log out</a></div>
 	</div>
 	<!-- jQuery + Underscore + Backbone -->
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>

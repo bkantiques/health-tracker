@@ -1,21 +1,53 @@
 var app = app || {};
 
 // Firebase database
-var firebaseRef = new Firebase('https://torrid-fire-530.firebaseio.com/');
+var firebaseRef = firebaseRef || new Firebase('https://torrid-fire-530.firebaseio.com/');
 
 // Startup
 $(function() {
 
-	// Check authorization and create user
-	app.User = new User({authData: firebaseRef.getAuth()});
+	// Initialize user
+	app.User = new User();
 
-	/*if(app.User.get('authData')) {
-
-	}*/
-
+	// Initialize views
 	app.LoginView = new LoginView();
 	app.RegisterView = new RegisterView();
 	app.MainView = new MainView();
 
-	app.Router.navigate('login', {trigger: true})
+	// Check authorization and save
+	app.User.set('authData', firebaseRef.getAuth());
+
+	// Initialize router
+	app.Router = new Workspace();
+
+	// Start history/ run matching route of current address
+	if(!Backbone.history.start()) {
+		// If no matching route found, run login route
+		app.Router.navigate('login', {trigger: true});
+	}
+
+
+	// Listen to auth changes
+	firebaseRef.onAuth(function(authData) {
+		if(authData) {
+			// On login
+
+			// Save user's authData
+			app.User.set('authData', authData);
+
+			// Go to main view
+			app.Router.navigate('main', {trigger: true});
+		}
+		else {
+			// On logout
+
+			// Unset user's authData
+			app.User.unset('authData');
+
+			// On logout
+			app.Router.navigate('login', {trigger: true});
+		}
+	});
+
+
 });
