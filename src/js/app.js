@@ -23,6 +23,7 @@ $(function() {
 	// Start history/ run matching route of current address
 	if(!Backbone.history.start()) {
 		// If no matching route found, run login route
+		// Will go to login if not lgged in or main if logged in
 		app.Router.navigate('login', {trigger: true});
 	}
 
