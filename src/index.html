@@ -10,6 +10,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
+	<link rel="stylesheet" href="bower_components/jquery-ui/themes/ui-lightness/jquery-ui.min.css">
 	<link rel="stylesheet" href="css/style.css">
 
 	<!--[if lt IE 9]>
@@ -64,11 +65,19 @@
 			<div class="search-error-message error-message"></div>
 			<ul id="search-food-list"></ul>
 		</div>
+
+		<div id="record-view">
+			<div>
+				<label for="datepicker">Date: </label>
+				<input type="text" id="datepicker">
+			</div>
+		</div>
 	</div>
-	<!-- jQuery + Underscore + Backbone -->
+	<!-- jQuery + Underscore + Backbone + jQuery UI -->
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/underscore/underscore-min.js"></script>
 	<script src="bower_components/backbone/backbone-min.js"></script>
+	<script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
 	<!-- Firebase -->
 	<script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
 	<!-- BackboneFire -->
@@ -89,7 +98,9 @@
 	<script src="js/views/main.js"></script>
 	<script src="js/views/search.js"></script>
 	<script src="js/views/searchItem.js"></script>
+	<script src="js/views/record.js"></script>
 	<script src="js/collections/searchItems.js"></script>
+	<script src="js/collections/foodRecords.js"></script>
 	<script src="js/routers/router.js"></script>
 	<script src="js/app.js"></script>
 </body>

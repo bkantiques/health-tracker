@@ -14,6 +14,7 @@ $(function() {
 	app.RegisterView = new RegisterView();
 	app.MainView = new MainView();
 	app.SearchView = new SearchView();
+	app.RecordView = new RecordView();
 	// Check authorization and save
 	app.User.set('authData', firebaseRef.getAuth());
 
@@ -38,6 +39,9 @@ $(function() {
 
 			// Go to main view
 			app.Router.navigate('main', {trigger: true});
+
+			// Initialize firebase collection
+			app.FoodRecords = new FoodRecords();
 		}
 		else {
 			// On logout
