@@ -61,6 +61,7 @@
 				<label for="search">Search for food: </label>
 				<input type="text" id="search-input">
 			</div>
+			<div class="search-error-message error-message"></div>
 			<ul id="search-food-list"></ul>
 		</div>
 	</div>
@@ -73,13 +74,22 @@
 	<!-- BackboneFire -->
 	<script src="https://cdn.firebase.com/libs/backbonefire/0.5.1/backbonefire.min.js"></script>
 
+	<script type="text/template" id="search-item-template">
+	<div class="search-item-view">
+		<div><%= brand %> <%= name %></div>
+		<div><%= calories %> calories</div>
+	</div>
+	</script>
+
 	<script src="js/models/user.js"></script>
-	<script src="js/models/foodItem.js"></script>
+	<script src="js/models/searchItem.js"></script>
 	<script src="js/models/foodRecord.js"></script>
 	<script src="js/views/login.js"></script>
 	<script src="js/views/register.js"></script>
 	<script src="js/views/main.js"></script>
 	<script src="js/views/search.js"></script>
+	<script src="js/views/searchItem.js"></script>
+	<script src="js/collections/searchItems.js"></script>
 	<script src="js/routers/router.js"></script>
 	<script src="js/app.js"></script>
 </body>
