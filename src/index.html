@@ -55,6 +55,14 @@
 
 	<div id="main-view">
 		<div><a class="log-out" href="#login">Log out</a></div>
+
+		<div id="search-view">
+			<div>
+				<label for="search">Search for food: </label>
+				<input type="text" id="search-input">
+			</div>
+			<ul id="search-food-list"></ul>
+		</div>
 	</div>
 	<!-- jQuery + Underscore + Backbone -->
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -66,9 +74,12 @@
 	<script src="https://cdn.firebase.com/libs/backbonefire/0.5.1/backbonefire.min.js"></script>
 
 	<script src="js/models/user.js"></script>
+	<script src="js/models/foodItem.js"></script>
+	<script src="js/models/foodRecord.js"></script>
 	<script src="js/views/login.js"></script>
 	<script src="js/views/register.js"></script>
 	<script src="js/views/main.js"></script>
+	<script src="js/views/search.js"></script>
 	<script src="js/routers/router.js"></script>
 	<script src="js/app.js"></script>
 </body>

@@ -13,7 +13,7 @@ $(function() {
 	app.LoginView = new LoginView();
 	app.RegisterView = new RegisterView();
 	app.MainView = new MainView();
-
+	app.SearchView = new SearchView();
 	// Check authorization and save
 	app.User.set('authData', firebaseRef.getAuth());
 
