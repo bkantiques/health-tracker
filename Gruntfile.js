@@ -79,7 +79,7 @@ module.exports = function(grunt) {
                 src: [
                     'src/index.html',
                     'src/css/style.css',
-                    'src/js/*.js'
+                    'src/js/**/*.js'
                 ]
             },
             options: {
