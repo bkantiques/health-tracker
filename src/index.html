@@ -67,10 +67,12 @@
 		</div>
 
 		<div id="record-view">
+			<div>Select a date to view logs</div>
 			<div>
 				<label for="datepicker">Date: </label>
 				<input type="text" id="datepicker">
 			</div>
+			<ul id="record-list"></ul>
 		</div>
 	</div>
 	<!-- jQuery + Underscore + Backbone + jQuery UI -->
@@ -90,6 +92,14 @@
 	</div>
 	</script>
 
+	<script type="text/template" id="record-item-template">
+	<div class="record-item-view">
+		<div><%= brand %> <%= name %></div>
+		<div><%= calories %> calories</div>
+		<div><button class="delete">Delete</button></div>
+	</div>
+	</script>
+
 	<script src="js/models/user.js"></script>
 	<script src="js/models/searchItem.js"></script>
 	<script src="js/models/foodRecord.js"></script>
@@ -98,6 +108,7 @@
 	<script src="js/views/main.js"></script>
 	<script src="js/views/search.js"></script>
 	<script src="js/views/searchItem.js"></script>
+	<script src="js/views/recordItem.js"></script>
 	<script src="js/views/record.js"></script>
 	<script src="js/collections/searchItems.js"></script>
 	<script src="js/collections/foodRecords.js"></script>

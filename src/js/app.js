@@ -42,6 +42,9 @@ $(function() {
 
 			// Initialize firebase collection
 			app.FoodRecords = new FoodRecords();
+
+			// Have record view listen to changes in recorded food collection and render on change
+			app.RecordView.listenTo(app.FoodRecords, 'all', app.RecordView.render);
 		}
 		else {
 			// On logout
