@@ -5,15 +5,16 @@ RecordView = Backbone.View.extend({
 	el: $('#record-view'),
 
 	events: {
-		'change #datepicker': 'render'
+		'change #datepicker': 'renderList'
 	},
 
 	initialize: function() {
 		this.$recordList = this.$('#record-list');
 		this.$datepicker = this.$('#datepicker');
 
+		// Initialize datepicker, set to today's date to start
 		this.$datepicker.datepicker();
-
+		this.$datepicker.datepicker('setDate', '+0d');
 
 	},
 
@@ -24,7 +25,7 @@ RecordView = Backbone.View.extend({
 	},
 
 	// Add a search item view for each search item in the collection
-	render: function() {
+	renderList: function() {
 		var self = this;
 
 		// Clear old record items and error message
@@ -39,8 +40,8 @@ RecordView = Backbone.View.extend({
 			function matchesSelectedDate(recordItem) {
 				var recordDate = new Date(recordItem.get('date'));
 
-				return recordDate.getFullYear() === date.getFullYear() && 
-				recordDate.getMonth() === date.getMonth() && 
+				return recordDate.getFullYear() === date.getFullYear() &&
+				recordDate.getMonth() === date.getMonth() &&
 				recordDate.getDay() === date.getDay();
 			};
 
@@ -53,6 +54,10 @@ RecordView = Backbone.View.extend({
 
 		}
 
+	},
+
+	renderCalendar: function() {
+
 	}
 
-}); 
+});
