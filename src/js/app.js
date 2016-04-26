@@ -15,6 +15,7 @@ $(function() {
 	app.MainView = new MainView();
 	app.SearchView = new SearchView();
 	app.RecordView = new RecordView();
+	app.StatsView = new StatsView();
 	// Check authorization and save
 	app.User.set('authData', firebaseRef.getAuth());
 

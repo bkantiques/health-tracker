@@ -63,6 +63,8 @@
 	<div id="main-view">
 		<div><a class="log-out" href="#login">Log out</a></div>
 
+		<div><a href="#stats">View stats</a></div>
+
 		<div id="search-view">
 			<div>
 				<label for="search">Search for food: </label>
@@ -81,6 +83,21 @@
 			<ul id="record-list"></ul>
 			<div id="day-total-calories"></div>
 		</div>
+	</div>
+
+	<div id="stats-view">
+
+		<div><a class="log-out" href="#login">Log out</a></div>
+		<div><a href="#main">Back to main</a></div>
+
+		<div><a id="7-stats">Last 7 days</a></div>
+		<div><a id="30-stats">Last 30 days</a></div>
+		<div><a id="90-stats">Last 90 days</a></div>
+		<div><a id="365-stats">Last 365 days</a></div>
+		<div><a id="custom-stats">Custom date range</a></div>
+
+		<div id="stats-data"></div>
+
 	</div>
 	<!-- jQuery + Underscore + Backbone + jQuery UI -->
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -107,6 +124,11 @@
 	</div>
 	</script>
 
+	<script type="text/template" id="stats-template">
+		<div>Total: <%= total %></div>
+		<div>Average: <%= average %></div>
+	</script>
+
 	<script src="js/models/user.js"></script>
 	<script src="js/models/searchItem.js"></script>
 	<script src="js/models/foodRecord.js"></script>
@@ -117,6 +139,7 @@
 	<script src="js/views/searchItem.js"></script>
 	<script src="js/views/recordItem.js"></script>
 	<script src="js/views/record.js"></script>
+	<script src="js/views/stats.js"></script>
 	<script src="js/collections/searchItems.js"></script>
 	<script src="js/collections/foodRecords.js"></script>
 	<script src="js/routers/router.js"></script>
