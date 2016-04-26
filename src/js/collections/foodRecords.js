@@ -62,6 +62,40 @@ var FoodRecords = Backbone.Firebase.Collection.extend({
 			.map(function(dateString) {
 				return new Date(dateString);
 			});
-	}
+	},
 
+	// Get array of calories on dates starting on minDate and going to maxDate
+	getCaloriesBetweenDates: function(minDate, maxDate) {
+		// Only proceed if parameters are dates and minDate less than maxDate
+		if(!isNaN(minDate.getTime()) && !isNaN(maxDate.getTime()) && minDate.getTime() <= maxDate.getTime()) {
+			
+			var indexDate = minDate;
+			var numDays = 0;
+			var caloriesArray = [];
+
+			// Loop through days between minDate and maxDate
+			while(indexDate.getTime() <= maxDate.getTime()) {
+
+				// Add number of calories to array
+				caloriesArray[numDays] = this.getCaloriesOnDate(indexDate);
+
+				// Set index date to next day
+				indexDate = new Date(indexDate.getTime() + (24 * 60 * 60 * 1000));
+
+				numDays++;
+			}
+
+			return caloriesArray;
+
+		}
+
+	},
+
+	// Get calories array from last given number of days
+	getLastNDaysCalories: function(numDays) {
+		var maxDate = new Date();
+		var minDate = new Date(maxDate.getTime() - (numDays - 1) * (24 * 60 * 60 * 1000));
+
+		return this.getCaloriesBetweenDates(minDate, maxDate);
+	}
 });
