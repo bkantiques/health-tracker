@@ -91,11 +91,73 @@ var FoodRecords = Backbone.Firebase.Collection.extend({
 
 	},
 
+	// Get total calories between dates by adding array
+	getTotalCaloriesBetweenDates: function(minDate, maxDate) {
+		// Get array of calories
+		var caloriesArr = this.getCaloriesBetweenDates(minDate, maxDate); 
+
+		// Get sum of array
+		var total = _.reduce(caloriesArr, function(totalCalories, calories) {
+
+			// If calories is a number, add to total calories
+			if(!isNaN(calories)) {
+				totalCalories += calories;
+			}
+
+			return totalCalories;
+
+		}, 0);
+
+		return total;
+	},
+
+	// Get average calories between dates by adding array
+	getAverageCaloriesBetweenDates: function(minDate, maxDate) {
+		// Get array of calories
+		var caloriesArr = this.getCaloriesBetweenDates(minDate, maxDate); 
+
+		var numDays = caloriesArr.length;
+
+		// Get sum of array
+		var total = _.reduce(caloriesArr, function(totalCalories, calories) {
+
+			// If calories is a number, add to total calories
+			if(!isNaN(calories)) {
+				totalCalories += calories;
+			}
+
+			return totalCalories;
+
+		}, 0);
+
+		if(numDays > 0) {
+			// Return average
+			return total / numDays;
+		}
+		else {
+			return 0;
+		}
+	},
+
 	// Get calories array from last given number of days
 	getLastNDaysCalories: function(numDays) {
 		var maxDate = new Date();
 		var minDate = new Date(maxDate.getTime() - (numDays - 1) * (24 * 60 * 60 * 1000));
 
 		return this.getCaloriesBetweenDates(minDate, maxDate);
+	},
+
+	getLastNDaysTotalCalories: function(numDays) {
+		var maxDate = new Date();
+		var minDate = new Date(maxDate.getTime() - (numDays - 1) * (24 * 60 * 60 * 1000));
+
+		return this.getTotalCaloriesBetweenDates(minDate, maxDate);
+	},
+
+	getLastNDaysAverageCalories: function(numDays) {
+		var maxDate = new Date();
+		var minDate = new Date(maxDate.getTime() - (numDays - 1) * (24 * 60 * 60 * 1000));
+
+		return this.getAverageCaloriesBetweenDates(minDate, maxDate);
 	}
 });
