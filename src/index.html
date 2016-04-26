@@ -96,6 +96,21 @@
 		<div><a id="365-stats">Last 365 days</a></div>
 		<div><a id="custom-stats">Custom date range</a></div>
 
+		<div id="custom-range">
+			<div>
+				<label for="datepicker">Starting date: </label>
+				<input type="text" id="min-custom-datepicker">
+			</div>
+			<div>
+				<label for="datepicker">Ending date: </label>
+				<input type="text" id="max-custom-datepicker">
+			</div>
+			<div>
+				<button id='custom-range-button'>Get stats</button>
+			</div>
+			<div class="error-message" id="custom-range-error"></div>
+		</div>
+
 		<div id="stats-data"></div>
 
 	</div>
@@ -125,8 +140,8 @@
 	</script>
 
 	<script type="text/template" id="stats-template">
-		<div>Total: <%= total %></div>
-		<div>Average: <%= average %></div>
+		<div>Total calories: <%= total %></div>
+		<div>Average calories per day: <%= average %></div>
 	</script>
 
 	<script src="js/models/user.js"></script>
