@@ -19,6 +19,13 @@ StatsView = Backbone.View.extend({
         this.$minDatepicker = this.$('#min-custom-datepicker');
         this.$maxDatepicker = this.$('#max-custom-datepicker');
         this.$customRangeError = this.$('#custom-range-error');
+        this.$chartCtx = this.$('#calorie-chart');
+        this.$7Link = this.$('#7-stats');
+        this.$30Link = this.$('#30-stats');
+        this.$90Link = this.$('#90-stats');
+        this.$365Link = this.$('#365-stats');
+        this.$customLink = this.$('#custom-stats');
+        this.$statRangeLinks = this.$('.stat-range');
 
         this.$minDatepicker.datepicker();
         this.$maxDatepicker.datepicker();
@@ -35,6 +42,10 @@ StatsView = Backbone.View.extend({
 
     renderNDays: function(numDays) {
 
+        this.$statRangeLinks.removeClass('stat-range-selected');
+        this.$('#' + numDays + '-stats').addClass('stat-range-selected');
+
+
         // Get the total and average number of calories from last n days and render
         var total = app.FoodRecords.getLastNDaysTotalCalories(numDays);
         var average = app.FoodRecords.getLastNDaysAverageCalories(numDays);
@@ -47,6 +58,56 @@ StatsView = Backbone.View.extend({
     	// Render data
 		this.$statsData.html( this.template( data ) );
 
+        // Render chart
+        var caloriesData = app.FoodRecords.getLastNDaysCalories(numDays);
+
+        this.renderChart(caloriesData);
+
+    },
+
+    // Render a chart with the calories data
+    renderChart: function(caloriesData) {
+
+        // Create array of numbers for labels
+        var dataLength = caloriesData.length;
+        var labels = [];
+
+        for(var i = 0; i < dataLength; i++) {
+            labels[i] = i + 1;
+        }
+
+        // Chart data
+        var chartData = {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Calories',
+                    data: caloriesData,
+                    fill: false,
+                    borderColor: 'orange',
+                    backgroundColor: 'orange'
+                }
+            ]
+        };
+
+        // Draw chart
+        var lineChart =  new Chart(this.$chartCtx, {
+            type: 'line',
+            data: chartData,
+            options: {}
+        });
+
+    },
+
+    // Clear chart
+    clearChart: function() {
+
+        var ctx = this.$chartCtx[0].getContext('2d');
+
+        ctx.clearRect(0, 0, this.$chartCtx.width(), this.$chartCtx.height());
+
+
+
     },
 
     render7Days: function() {
@@ -55,6 +116,7 @@ StatsView = Backbone.View.extend({
         // Clear error message and hide custom range view
         this.$customRange.hide();
         this.clearCustomRangeError();
+
     },
 
     render30Days: function() {
@@ -77,10 +139,17 @@ StatsView = Backbone.View.extend({
 
     // Switch to the custom range
     switchToCustom: function() {
+        // Add selected class to link
+        this.$statRangeLinks.removeClass('stat-range-selected');
+        this.$customLink.addClass('stat-range-selected');
+
         // Clear old data
         this.$statsData.html('');
-        this.$customRange.show();
         this.clearCustomRangeError();
+        this.clearChart();
+
+        // Show view
+        this.$customRange.show();
     },
 
     renderCustomStats: function() {
@@ -104,6 +173,9 @@ StatsView = Backbone.View.extend({
             };
 
             this.$statsData.html( this.template( data ) );
+
+            // Render chart
+            this.renderChart(app.FoodRecords.getCaloriesBetweenDates(minDate, maxDate));
         }
         else {
             // Print error message

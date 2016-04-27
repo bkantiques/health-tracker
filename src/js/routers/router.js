@@ -62,6 +62,11 @@ var Workspace = Backbone.Router.extend({
 			app.RegisterView.$el.hide();
 			app.MainView.$el.hide();
 			app.StatsView.$el.show();
+
+			// Start off displaying data for last 7 days
+			if(app.FoodRecords) {
+				app.StatsView.render7Days();
+			}
 		}
 		// If not logged in
 		else {

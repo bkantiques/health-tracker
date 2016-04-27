@@ -21,6 +21,11 @@
 		.has-record .ui-state-default {
 			background: lightgreen none;
 		}
+
+		.chart-container {
+			max-width: 400px;
+			max-height: 400px;
+		}
 	</style>
 </head>
 
@@ -90,11 +95,11 @@
 		<div><a class="log-out" href="#login">Log out</a></div>
 		<div><a href="#main">Back to main</a></div>
 
-		<div><a id="7-stats">Last 7 days</a></div>
-		<div><a id="30-stats">Last 30 days</a></div>
-		<div><a id="90-stats">Last 90 days</a></div>
-		<div><a id="365-stats">Last 365 days</a></div>
-		<div><a id="custom-stats">Custom date range</a></div>
+		<div><a class="stat-range" id="7-stats">Last 7 days</a></div>
+		<div><a class="stat-range" id="30-stats">Last 30 days</a></div>
+		<div><a class="stat-range" id="90-stats">Last 90 days</a></div>
+		<div><a class="stat-range" id="365-stats">Last 365 days</a></div>
+		<div><a class="stat-range" id="custom-stats">Custom date range</a></div>
 
 		<div id="custom-range">
 			<div>
@@ -113,12 +118,17 @@
 
 		<div id="stats-data"></div>
 
+		<div class="chart-container">
+			<canvas id="calorie-chart" width="400" height="400"></canvas>
+		</div>
+
 	</div>
 	<!-- jQuery + Underscore + Backbone + jQuery UI -->
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/underscore/underscore-min.js"></script>
 	<script src="bower_components/backbone/backbone-min.js"></script>
 	<script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+	<script src="bower_components/Chart.js/dist/Chart.min.js"></script>
 	<!-- Firebase -->
 	<script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
 	<!-- BackboneFire -->
