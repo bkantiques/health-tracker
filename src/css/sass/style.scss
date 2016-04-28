@@ -74,11 +74,10 @@ a:hover {
 }
 
 .food-list {
-	padding-left: 0;
+	width: 100%;
 }
 
 .food-item {
-	padding-left: 0;
 	width: 100%;
 	border: 1px solid black;
 	display: flex;
@@ -99,6 +98,10 @@ a:hover {
 	padding: 10px 15px;
 }
 
+.calories {
+	text-align: right;
+}
+
 .record-item {
 
 	.name {
@@ -110,7 +113,7 @@ a:hover {
 	}
 
 	.delete-container {
-		width: 10%;
+		width: 60px;
 	}
 }
 
@@ -148,4 +151,27 @@ record-item:focus .delete-container {
 
 .chart-container {
 	max-width: 600px;
+}
+
+table {
+	margin-top: 1em;
+}
+
+#record-view {
+	margin-top: 2em;
+}
+
+.error-message {
+	color: red;
+	margin-top: 1em;
+}
+
+#stats-data {
+	margin: 1.5em 0;
+}
+
+@media screen and (max-width: 650px) {
+	.stat-options {
+		flex-direction: column;
+	}
 }

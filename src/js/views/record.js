@@ -22,6 +22,7 @@ RecordView = Backbone.View.extend({
 		this.$recordList = this.$('#record-list');
 		this.$datepicker = this.$('#datepicker');
 		this.$dayTotalCalories = this.$('#day-total-calories');
+		this.$error = this.$('.error-message');
 
 		// Initialize datepicker, set to today's date to start
 		this.$datepicker.datepicker();
@@ -43,14 +44,17 @@ RecordView = Backbone.View.extend({
 		// Clear old record items and error message
 		this.$recordList.html('');
 		this.$dayTotalCalories.text('');
+		this.clearError();
 
 		var date = this.getDate();
 
 		// Check if date from datepicker is valid and collection exists
 		if(app.FoodRecords && date && !isNaN(date.getTime())) {
 
+			// Get records from date
 			var records = app.FoodRecords.getRecordsByDate(date);
 
+			// Render a view for each record
 			records.forEach(function(recordItem) {
 
 				var view = new app.RecordItemView({model: recordItem});
@@ -60,6 +64,11 @@ RecordView = Backbone.View.extend({
 
 			this.$dayTotalCalories.text('Total calories: ' + app.FoodRecords.getCaloriesOnDate(date));
 
+			// If no records from that day, print message
+			if(records.length === 0) {
+				this.errorMessage('No records from this date. Click a search result to create a record.')
+				this.$dayTotalCalories.text('');
+			}
 		}
 
 	},
@@ -90,6 +99,16 @@ RecordView = Backbone.View.extend({
 
 		this.$datepicker.datepicker('refresh');
 
+	},
+
+	// Print error message
+	errorMessage: function(error) {
+		this.$error.text(error);
+	},
+
+	// Clear error message
+	clearError: function() {
+		this.$error.text('');
 	}
 
 });

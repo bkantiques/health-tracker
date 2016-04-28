@@ -156,6 +156,7 @@ StatsView = Backbone.View.extend({
         // Clear old data
         this.$statsData.html('');
         this.clearCustomRangeError();
+        this.clearChart();
 
         var minDate = this.$minDatepicker.datepicker('getDate');
         var maxDate = this.$maxDatepicker.datepicker('getDate');

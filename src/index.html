@@ -73,7 +73,7 @@
 				<input type="text" id="search-input">
 			</div>
 			<div class="search-error-message error-message"></div>
-			<ul class="food-list" id="search-food-list"></ul>
+			<table class="food-list" id="search-food-list"></table>
 		</div>
 
 		<div id="record-view">
@@ -82,7 +82,8 @@
 				<label for="datepicker">Date: </label>
 				<input type="text" id="datepicker">
 			</div>
-			<ul class="food-list" id="record-list"></ul>
+			<div class="record-error-message error-message"></div>
+			<table class="food-list" id="record-list"></table>
 			<div class="text-right" id="day-total-calories"></div>
 		</div>
 	</div>
@@ -94,7 +95,7 @@
 			<div><a href="#main">Back to main</a></div>
 		</div>
 
-		<div class="flex-links">
+		<div class="flex-links stat-options">
 			<div><a class="stat-range" id="7-stats">Last 7 days</a></div>
 			<div><a class="stat-range" id="30-stats">Last 30 days</a></div>
 			<div><a class="stat-range" id="90-stats">Last 90 days</a></div>
@@ -140,14 +141,14 @@
 	<script src="https://cdn.firebase.com/libs/backbonefire/0.5.1/backbonefire.min.js"></script>
 
 	<script type="text/template" id="search-item-template">
-		<div class="name"><%= brand %> <%= name %></div>
-		<div class="calories"><%= calories %> calories</div>
+		<td class="name"><%= brand %> <%= name %></td>
+		<td class="calories"><%= calories %> calories</td>
 	</script>
 
 	<script type="text/template" id="record-item-template">
-		<div class="name"><%= brand %> <%= name %></div>
-		<div class="calories"><%= calories %> calories</div>
-		<div class="delete-container"><button class="delete">×</button></div>
+		<td class="name"><%= brand %> <%= name %></td>
+		<td class="calories"><%= calories %> calories</td>
+		<td class="delete-container"><button class="delete">×</button></td>
 	</script>
 
 	<script type="text/template" id="stats-template">

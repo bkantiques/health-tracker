@@ -81,7 +81,6 @@ SearchView = Backbone.View.extend({
 				})
 				.then(function(response) {
 					if(response.ok) {
-						console.log(response);
 						return response.json();
 					}
 					else {
@@ -90,7 +89,6 @@ SearchView = Backbone.View.extend({
 					}
 				})
 				.then(function(response) {
-					console.log(response);
 					var results = response.hits;
 
 					// If search term is the most recent search term, update collection

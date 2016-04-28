@@ -2,7 +2,7 @@ var app = app || {};
 
 app.SearchItemView = Backbone.View.extend({
 
-	tagName: 'li',
+	tagName: 'tr',
 
     className: 'food-item search-item',
 

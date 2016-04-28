@@ -2,7 +2,7 @@ var app = app || {};
 
 app.RecordItemView = Backbone.View.extend({
 
-	tagName: 'li',
+	tagName: 'tr',
 
 	className: 'food-item record-item',
 
