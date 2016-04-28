@@ -4,6 +4,8 @@ app.RecordItemView = Backbone.View.extend({
 
 	tagName: 'li',
 
+	className: 'food-item record-item',
+
 	events: {
 		'click .delete': 'delete'
 	},

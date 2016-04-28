@@ -37,3 +37,12 @@ gruntwork
 
 # Bower packages
 src/bower_components
+
+# Dist folder
+dist
+
+# CSS sheet compiled from sass
+src/css/style.css
+
+# Sass cache
+.sass-cache

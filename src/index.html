@@ -17,58 +17,55 @@
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
-	<style>
-		.has-record .ui-state-default {
-			background: lightgreen none;
-		}
-
-		.chart-container {
-			max-width: 400px;
-			max-height: 400px;
-		}
-	</style>
 </head>
 
 <body>
 
-	<div id="login-view">
-		<div>
-			<label for="login-email">Email: </label>
-			<input type="email" id="login-email" class="login-email">
+	<div class="page auth-page" id="login-view">
+		<div class="auth-section">
+			<div class="text-small"><label for="login-email">Email: </label></div>
+			<div><input type="email" id="login-email" class="login-email auth-input"></div>
 		</div>
-		<div>
-			<label for="login-password">Password: </label>
-			<input type="password" id="login-password" class="login-password">
+		<div class="auth-section">
+			<div class="text-small"><label for="login-password">Password: </label></div>
+			<div><input type="password" id="login-password" class="login-password auth-input"></div>
 		</div>
-		<div>
-			<button class="login-button">Log In</button>
-		</div>
-		<div>
-			<a href="#register">Register</a>
-		</div>
-	</div>
-
-	<div id="register-view">
-		<div>
-			<label for="register-email">Email: </label>
-			<input type="email" id="register-email" class="register-email">
-		</div>
-		<div>
-			<label for="register-password">Password: </label>
-			<input type="password" id="register-password" class="register-password">
-		</div>
-		<div>
-			<button class="register-button">Register</button>
-		</div>
-		<div>
-			<a href="#login">Back to Login</a>
+		<div class="auth-section flex-links">
+			<div>
+				<button class="login-button primary-button">Login</button>
+			</div>
+			<div>
+				<a href="#register">Register</a>
+			</div>
 		</div>
 	</div>
 
-	<div id="main-view">
-		<div><a class="log-out" href="#login">Log out</a></div>
+	<div class="page auth-page" id="register-view">
+		<div class="auth-section">
+			<div class="text-small"><label for="register-email">Email: </label></div>
+			<div><input type="email" id="register-email" class="register-email auth-input"></div>
+		</div>
+		<div class="auth-section">
+			<div class="text-small"><label for="register-password">Password: </label></div>
+			<div><input type="password" id="register-password" class="register-password auth-input"></div>
+		</div>
+		<div class="auth-section flex-links">
+			<div>
+				<button class="register-button primary-button">Register</button>
+			</div>
+			<div>
+				<a href="#login">Login</a>
+			</div>
+		</div>
+	</div>
 
-		<div><a href="#stats">View stats</a></div>
+	<div class="page content-page" id="main-view">
+
+		<div class="flex-links top-nav">
+			<div><a class="log-out" href="#login">Log out</a></div>
+
+			<div><a href="#stats">View stats</a></div>
+		</div>
 
 		<div id="search-view">
 			<div>
@@ -76,7 +73,7 @@
 				<input type="text" id="search-input">
 			</div>
 			<div class="search-error-message error-message"></div>
-			<ul id="search-food-list"></ul>
+			<ul class="food-list" id="search-food-list"></ul>
 		</div>
 
 		<div id="record-view">
@@ -85,33 +82,37 @@
 				<label for="datepicker">Date: </label>
 				<input type="text" id="datepicker">
 			</div>
-			<ul id="record-list"></ul>
-			<div id="day-total-calories"></div>
+			<ul class="food-list" id="record-list"></ul>
+			<div class="text-right" id="day-total-calories"></div>
 		</div>
 	</div>
 
-	<div id="stats-view">
+	<div class="page content-page" id="stats-view">
 
-		<div><a class="log-out" href="#login">Log out</a></div>
-		<div><a href="#main">Back to main</a></div>
+		<div class="flex-links top-nav">
+			<div><a class="log-out" href="#login">Log out</a></div>
+			<div><a href="#main">Back to main</a></div>
+		</div>
 
-		<div><a class="stat-range" id="7-stats">Last 7 days</a></div>
-		<div><a class="stat-range" id="30-stats">Last 30 days</a></div>
-		<div><a class="stat-range" id="90-stats">Last 90 days</a></div>
-		<div><a class="stat-range" id="365-stats">Last 365 days</a></div>
-		<div><a class="stat-range" id="custom-stats">Custom date range</a></div>
+		<div class="flex-links">
+			<div><a class="stat-range" id="7-stats">Last 7 days</a></div>
+			<div><a class="stat-range" id="30-stats">Last 30 days</a></div>
+			<div><a class="stat-range" id="90-stats">Last 90 days</a></div>
+			<div><a class="stat-range" id="365-stats">Last 365 days</a></div>
+			<div><a class="stat-range" id="custom-stats">Custom date range</a></div>
+		</div>
 
 		<div id="custom-range">
-			<div>
-				<label for="datepicker">Starting date: </label>
-				<input type="text" id="min-custom-datepicker">
+			<div class="form-section">
+				<div><label for="datepicker">Starting date: </label></div>
+				<div><input type="text" id="min-custom-datepicker"></div>
 			</div>
-			<div>
-				<label for="datepicker">Ending date: </label>
-				<input type="text" id="max-custom-datepicker">
+			<div class="form-section">
+				<div><label for="datepicker">Ending date: </label></div>
+				<div><input type="text" id="max-custom-datepicker"></div>
 			</div>
-			<div>
-				<button id='custom-range-button'>Get stats</button>
+			<div class="form-section">
+				<button id='custom-range-button' class='primary-button'>Get stats</button>
 			</div>
 			<div class="error-message" id="custom-range-error"></div>
 		</div>
@@ -123,11 +124,15 @@
 		</div>
 
 	</div>
+
+	<!-- Fetch polyfill -->
+	<script src="bower_components/fetch/fetch.js"></script>
 	<!-- jQuery + Underscore + Backbone + jQuery UI -->
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/underscore/underscore-min.js"></script>
 	<script src="bower_components/backbone/backbone-min.js"></script>
 	<script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+	<!-- Chart.js -->
 	<script src="bower_components/Chart.js/dist/Chart.min.js"></script>
 	<!-- Firebase -->
 	<script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
@@ -135,18 +140,14 @@
 	<script src="https://cdn.firebase.com/libs/backbonefire/0.5.1/backbonefire.min.js"></script>
 
 	<script type="text/template" id="search-item-template">
-	<div class="search-item-view">
-		<div><%= brand %> <%= name %></div>
-		<div><%= calories %> calories</div>
-	</div>
+		<div class="name"><%= brand %> <%= name %></div>
+		<div class="calories"><%= calories %> calories</div>
 	</script>
 
 	<script type="text/template" id="record-item-template">
-	<div class="record-item-view">
-		<div><%= brand %> <%= name %></div>
-		<div><%= calories %> calories</div>
-		<div><button class="delete">Delete</button></div>
-	</div>
+		<div class="name"><%= brand %> <%= name %></div>
+		<div class="calories"><%= calories %> calories</div>
+		<div class="delete-container"><button class="delete">×</button></div>
 	</script>
 
 	<script type="text/template" id="stats-template">

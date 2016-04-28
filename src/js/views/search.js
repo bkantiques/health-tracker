@@ -47,6 +47,7 @@ SearchView = Backbone.View.extend({
 	food items and send data to collection to be rendered
 	*/
 	search: function() {
+
 		var self = this;
 		var prevSearchTerm = this.prevSearchTerm || '';
 		prevSearchTerm = prevSearchTerm.trim();

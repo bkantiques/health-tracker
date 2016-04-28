@@ -4,6 +4,8 @@ app.SearchItemView = Backbone.View.extend({
 
 	tagName: 'li',
 
+    className: 'food-item search-item',
+
 	events: {
 		'click': 'recordModel'
 	},
@@ -19,7 +21,7 @@ app.SearchItemView = Backbone.View.extend({
 
     recordModel: function() {
     	// If record view and collection are initialized
-    	if(app.RecordView && app.FoodRecords) {	
+    	if(app.RecordView && app.FoodRecords) {
 
     		var date = app.RecordView.getDate();
 
