@@ -12,7 +12,8 @@ SearchView = Backbone.View.extend({
 		this.$foodList = this.$('#search-food-list');
 		this.$errorMessage = this.$('.search-error-message');
 
-		this.listenTo(app.SearchItems, 'reset', this.render)
+		// Render when search results collection changes
+		this.listenTo(app.SearchItems, 'reset', this.render);
 	},
 
 	// Clear search items and display error message
@@ -130,5 +131,11 @@ SearchView = Backbone.View.extend({
 
 			}
 		}
+	},
+
+	// Clear search results by clearing input and re-rendering
+	clear: function() {
+		this.$input.val('');
+		this.$foodList.html('');
 	}
 });

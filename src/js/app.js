@@ -51,6 +51,10 @@ $(function() {
 			// Have record view listen to changes in recorded food collection and render on change
 			app.RecordView.listenTo(app.FoodRecords, 'all', app.RecordView.renderList);
 			app.RecordView.listenTo(app.FoodRecords, 'all', app.RecordView.renderCalendar);
+
+
+			// Clear search results when a search result is clicked
+			app.SearchView.listenTo(app.FoodRecords, 'add', app.SearchView.clear);
 		}
 		else {
 			// On logout
