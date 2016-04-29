@@ -10,17 +10,17 @@ module.exports = function(grunt) {
             },
             // Concats local css into one file to reduce requests
             css: {
-                src: ['bower_components/normalize-css/normalize.css','bower_components/jquery-ui/themes/ui-lightness/jquery-ui.min.css', 'src/css/style.css'],
+                src: ['src/bower_components/normalize-css/normalize.css','src/bower_components/jquery-ui/themes/ui-lightness/jquery-ui.min.css', 'src/css/style.css'],
                 dest: 'gruntwork/css/concat/style.css'
             },
             // Concats local js bower files into one file to reduce requests
             libs: {
-                src: ['bower_components/fetch/fetch.js',
-                'bower_components/jquery/dist/jquery.min.js',
-                'bower_components/underscore/underscore-min.js',
-                'bower_components/backbone/backbone-min.js',
-                'bower_components/jquery-ui/jquery-ui.min.js',
-                'bower_components/Chart.js/dist/Chart.min.js'],
+                src: ['src/bower_components/fetch/fetch.js',
+                'src/bower_components/jquery/dist/jquery.min.js',
+                'src/bower_components/underscore/underscore-min.js',
+                'src/bower_components/backbone/backbone-min.js',
+                'src/bower_components/jquery-ui/jquery-ui.min.js',
+                'src/bower_components/Chart.js/dist/Chart.min.js'],
                 dest: 'gruntwork/js/concat/libs.js'
             },
             // Concats local js app files into one file to reduce requests
