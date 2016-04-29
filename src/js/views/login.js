@@ -17,7 +17,6 @@ LoginView = Backbone.View.extend({
 		// Clear inputs on user logged in
 		this.listenTo(app.User, 'loggedIn', this.clearFields);
 		this.listenTo(app.User, 'loginError', this.errorMessage);
-		this.listenTo(app.Router, 'loginView', this.clearError);
 	},
 
 	login: function() {

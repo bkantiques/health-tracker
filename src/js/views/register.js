@@ -18,7 +18,6 @@ RegisterView = Backbone.View.extend({
 		this.listenTo(app.User, 'loggedIn', this.clearFields);
 		this.listenTo(app.User, 'regError', this.errorMessage);
 		this.listenTo(app.User, 'loginError', this.errorMessage);
-		this.listenTo(app.Router, 'regView', this.clearError);
 	},
 
 	register: function() {
