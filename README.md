@@ -10,6 +10,7 @@ grunt. The app will not run correctly without all these steps.
 
 ```
 git clone https://github.com/bkantiques/health-tracker.git
+cd health-tracker
 npm install
 cd src
 bower install
