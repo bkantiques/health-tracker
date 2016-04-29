@@ -1,3 +1,4 @@
+// Colors
 $primary-color: orange;
 $secondary-color: lightgreen;
 $gray: #eee;
@@ -10,6 +11,7 @@ body {
 	background-color: white;
 }
 
+// Login and register view pages
 .auth-page {
 	max-width: 300px;
 	margin: 50px auto;
@@ -28,6 +30,7 @@ body {
 	margin: 10px 0;
 }
 
+// For navigation links
 .flex-links {
 	display: flex;
 	justify-content: space-between;
@@ -79,6 +82,7 @@ a:hover {
 	margin-bottom: 2em;
 }
 
+// Search and record item tables
 .food-list {
 	width: 100%;
 }
@@ -123,6 +127,7 @@ a:hover {
 	}
 }
 
+// Record item delete button- appears when item hovered over
 .delete-container {
 	visibility: hidden;
 }
@@ -143,6 +148,7 @@ record-item:focus .delete-container {
 	text-align: right;
 }
 
+// The choices for time ranges in the stats view
 .stat-range {
 	cursor: pointer;
 }
@@ -151,10 +157,17 @@ record-item:focus .delete-container {
 	text-decoration: underline;
 }
 
+@media screen and (max-width: 650px) {
+	.stat-options {
+		flex-direction: column;
+	}
+}
+
 .has-record .ui-state-default {
 	background: $secondary-color none;
 }
 
+// Chart- resizes responsively
 .chart-container {
 	max-width: 600px;
 }
@@ -167,6 +180,10 @@ table {
 	margin-top: 2em;
 }
 
+#day-total-calories {
+	margin-top: 1em;
+}
+
 .error-message {
 	color: red;
 	margin-top: 1em;
@@ -174,10 +191,4 @@ table {
 
 #stats-data {
 	margin: 1.5em 0;
-}
-
-@media screen and (max-width: 650px) {
-	.stat-options {
-		flex-direction: column;
-	}
 }

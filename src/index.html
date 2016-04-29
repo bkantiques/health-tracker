@@ -9,9 +9,11 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+	<!-- build:css css/style.min.css -->
 	<link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
 	<link rel="stylesheet" href="bower_components/jquery-ui/themes/ui-lightness/jquery-ui.min.css">
 	<link rel="stylesheet" href="css/style.css">
+	<!-- /build -->
 
 	<!--[if lt IE 9]>
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -128,6 +130,7 @@
 
 	</div>
 
+	<!-- build:js libs.min.js -->
 	<!-- Fetch polyfill -->
 	<script src="bower_components/fetch/fetch.js"></script>
 	<!-- jQuery + Underscore + Backbone + jQuery UI -->
@@ -137,6 +140,7 @@
 	<script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
 	<!-- Chart.js -->
 	<script src="bower_components/Chart.js/dist/Chart.min.js"></script>
+	<!-- /build -->
 	<!-- Firebase -->
 	<script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
 	<!-- BackboneFire -->
@@ -157,7 +161,7 @@
 		<div>Total calories: <%= total %></div>
 		<div>Average calories per day: <%= average %></div>
 	</script>
-
+	<!-- build:js app.min.js -->
 	<script src="js/models/user.js"></script>
 	<script src="js/models/searchItem.js"></script>
 	<script src="js/models/foodRecord.js"></script>
@@ -173,5 +177,6 @@
 	<script src="js/collections/foodRecords.js"></script>
 	<script src="js/routers/router.js"></script>
 	<script src="js/app.js"></script>
+	<!-- /build -->
 </body>
 </html>

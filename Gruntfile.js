@@ -10,13 +10,37 @@ module.exports = function(grunt) {
             },
             // Concats local css into one file to reduce requests
             css: {
-                src: ['src/css/normalize.css', 'src/css/style.css'],
-                dest: 'src/css/concat/style.css'
+                src: ['bower_components/normalize-css/normalize.css','bower_components/jquery-ui/themes/ui-lightness/jquery-ui.min.css', 'src/css/style.css'],
+                dest: 'gruntwork/css/concat/style.css'
             },
-            // Concats local js into one file to reduce requests
+            // Concats local js bower files into one file to reduce requests
+            libs: {
+                src: ['bower_components/fetch/fetch.js',
+                'bower_components/jquery/dist/jquery.min.js',
+                'bower_components/underscore/underscore-min.js',
+                'bower_components/backbone/backbone-min.js',
+                'bower_components/jquery-ui/jquery-ui.min.js',
+                'bower_components/Chart.js/dist/Chart.min.js'],
+                dest: 'gruntwork/js/concat/libs.js'
+            },
+            // Concats local js app files into one file to reduce requests
             js: {
-                src: ['src/js/sammy.js', 'src/js/NeighborhoodDataValidator.js', 'src/js/PlaceDataValidator.js', 'src/js/app.js'],
-                dest: 'src/js/concat/app.js'
+                src: ['src/js/models/user.js',
+                'src/js/models/searchItem.js',
+                'src/js/models/foodRecord.js',
+                'src/js/views/login.js',
+                'src/js/views/register.js',
+                'src/js/views/main.js',
+                'src/js/views/search.js',
+                'src/js/views/searchItem.js',
+                'src/js/views/recordItem.js',
+                'src/js/views/record.js',
+                'src/js/views/stats.js',
+                'src/js/collections/searchItems.js',
+                'src/js/collections/foodRecords.js',
+                'src/js/routers/router.js',
+                'src/js/app.js'],
+                dest: 'gruntwork/js/concat/app.js'
             }
         },
 
@@ -33,16 +57,17 @@ module.exports = function(grunt) {
             // Minifies concatenated js and puts in dist folder
             build: {
                 files: {
-                    'dist/js/app.min.js': 'src/js/concat/app.js'
+                    'dist/js/libs.min.js': 'gruntwork/js/concat/libs.js',
+                    'dist/js/app.min.js': 'gruntwork/js/concat/app.js'
                 }
             }
         },
 
         cssmin: {
-            // Minifies concatenated css and pputs in dist folder
+            // Minifies concatenated css and puts in dist folder
             build: {
                 files: {
-                    'dist/css/style.min.css': 'src/css/concat/style.css'
+                    'dist/css/style.min.css': 'gruntwork/css/concat/style.css'
                 }
             }
         },
@@ -64,10 +89,10 @@ module.exports = function(grunt) {
         },
 
         watch: {
-            /*dist: {
+            dist: {
                 files: ['src/css/*.scss','src/index.html', 'src/js/*.js'],
                 tasks: ['build']
-            },*/
+            },
             css: {
                 files: ['src/css/sass/*.scss'],
                 tasks: ['sass', 'autoprefixer']
