@@ -29,6 +29,10 @@ $(function() {
 		app.Router.navigate('login', {trigger: true});
 	}
 
+	// Have authorization views clear error messages when navigated to
+	app.LoginView.listenTo(app.Router, 'loginView', app.LoginView.clearError);
+	app.RegisterView.listenTo(app.Router, 'regView', app.RegisterView.clearError);
+
 
 	// Listen to auth changes
 	firebaseRef.onAuth(function(authData) {

@@ -17,6 +17,12 @@ body {
 	border-radius: 10px;
 }
 
+@media screen and (max-width: 410px) {
+	.auth-page {
+		margin: 50px 15px;
+	}
+}
+
 .form-section,
 .auth-section {
 	margin: 10px 0;

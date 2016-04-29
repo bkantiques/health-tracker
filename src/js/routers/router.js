@@ -23,6 +23,8 @@ var Workspace = Backbone.Router.extend({
 			app.RegisterView.$el.hide();
 			app.MainView.$el.hide();
 			app.StatsView.$el.hide();
+
+			this.trigger('loginView');
 		}
 	},
 
@@ -37,6 +39,8 @@ var Workspace = Backbone.Router.extend({
 			app.StatsView.$el.hide();
 			app.RegisterView.$el.show();
 			app.MainView.$el.hide();
+
+			this.trigger('regView');
 		}
 	},
 

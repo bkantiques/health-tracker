@@ -17,7 +17,7 @@ var User = Backbone.Model.extend({
 		firebaseRef.createUser(userInfo, function(error, userData) {
 			if(error) {
 				// Registration error
-				alert('reg error');
+				self.trigger('regError', error);
 			}
 			else {
 				// Registration success
@@ -40,7 +40,7 @@ var User = Backbone.Model.extend({
 		firebaseRef.authWithPassword(userInfo, function(error, authData) {
 			if(error) {
 				// Login error
-				alert('login error');
+				self.trigger('loginError', error);
 
 			}
 			else {
