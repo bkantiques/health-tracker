@@ -20,7 +20,7 @@ grunt build
 
 ## Usage
 
-You can run 'grunt watchSync' in the root directory to start a local server. Your port number will be
+You can run `grunt watchSync` in the root directory to start a local server. Your port number will be
 displayed in node, then to view the src version of the app, you can navigate in the browser to
 `localhost:[port number]/src/` or to view the fully built version, go to `localhost:[port number]/dist/`.
 
