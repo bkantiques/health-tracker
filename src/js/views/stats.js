@@ -47,8 +47,8 @@ StatsView = Backbone.View.extend({
 
 
         // Get the total and average number of calories from last n days and render
-        var total = app.FoodRecords.getLastNDaysTotalCalories(numDays);
-        var average = app.FoodRecords.getLastNDaysAverageCalories(numDays);
+        var total = app.FoodRecords.getLastNDaysTotalCalories(numDays).toFixed(2);
+        var average = app.FoodRecords.getLastNDaysAverageCalories(numDays).toFixed(2);
 
     	var data = {
     		total: total,

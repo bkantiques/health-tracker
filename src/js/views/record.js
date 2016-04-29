@@ -62,7 +62,7 @@ RecordView = Backbone.View.extend({
 
 			});
 
-			this.$dayTotalCalories.text('Total calories: ' + app.FoodRecords.getCaloriesOnDate(date));
+			this.$dayTotalCalories.text('Total calories: ' + app.FoodRecords.getCaloriesOnDate(date).toFixed(2));
 
 			// If no records from that day, print message
 			if(records.length === 0) {

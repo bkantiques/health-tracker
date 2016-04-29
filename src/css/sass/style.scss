@@ -103,6 +103,10 @@ a:hover {
 	background-color: $secondary-color;
 }
 
+.loading-indicator {
+	margin: 1.5em 0;
+}
+
 .name,
 .calories {
 	padding: 10px 15px;
@@ -146,6 +150,10 @@ record-item:focus .delete-container {
 
 .text-right {
 	text-align: right;
+}
+
+.text-center {
+	text-align: center;
 }
 
 // The choices for time ranges in the stats view

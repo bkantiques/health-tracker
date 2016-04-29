@@ -113,6 +113,16 @@ module.exports = function(grunt) {
                 },
                 watchTask: true
             }
+        },
+
+        // Copy images to dist
+        copy: {
+            main: {
+                files: [
+                    {expand: true, cwd: 'src/images/', src: ['*'], dest: 'dist/images/', filter: 'isFile'},
+                    {expand: true, cwd:'src/bower_components/jquery-ui/themes/ui-lightness/images/', src: ['*'], dest: 'dist/css/images/', filter: 'isFile'}
+                ]
+            }
         }
 
     });
@@ -120,7 +130,7 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     // 4. Register tasks
-    grunt.registerTask('build', ['sass', 'autoprefixer', 'concat', 'cssmin', 'uglify', 'processhtml']);
+    grunt.registerTask('build', ['sass', 'autoprefixer', 'concat', 'cssmin', 'uglify', 'processhtml', 'copy']);
     grunt.registerTask('watchSync', ['browserSync', 'watch']);
 
 };

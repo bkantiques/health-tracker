@@ -11,6 +11,10 @@ SearchView = Backbone.View.extend({
 		this.$input = this.$('#search-input');
 		this.$foodList = this.$('#search-food-list');
 		this.$errorMessage = this.$('.search-error-message');
+		this.$loadingIndicator = this.$('.loading-indicator');
+
+		// Hide loading indicator
+		this.$loadingIndicator.hide();
 
 		// Render when search results collection changes
 		this.listenTo(app.SearchItems, 'reset', this.render);
@@ -66,10 +70,15 @@ SearchView = Backbone.View.extend({
 			this.prevSearchTerm = searchTerm;
 
 			if(searchTerm === '') {
-				// If field is blank, just clear list
+				// If field is blank, just clear list and hide loading gif
 				this.$foodList.html('');
+				this.$loadingIndicator.hide();
 			}
 			else {
+
+				// Show loading gif
+				this.$loadingIndicator.show();
+
 				// Construct query url
 				var url = 'https://api.nutritionix.com/v1_1/search/' +
 					encodeURIComponent(searchTerm) +
@@ -94,6 +103,10 @@ SearchView = Backbone.View.extend({
 
 					// If search term is the most recent search term, update collection
 					if(searchTerm === self.prevSearchTerm) {
+
+						// Hide loading gif
+						self.$loadingIndicator.hide();
+
 						if(results.length > 0) {
 
 							// Clear old search items from search items collection
@@ -126,6 +139,10 @@ SearchView = Backbone.View.extend({
 
 				})
 				.catch(function(error) {
+
+					// Hide loading gif
+					self.$loadingIndicator.hide();
+
 					self.errorMessage(error);
 				});
 
